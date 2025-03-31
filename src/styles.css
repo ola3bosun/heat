@@ -82,18 +82,21 @@ section{
     align-items: flex-end;
 }
 
+#lagos-time{
+    animation: blink infinite 2s linear;
+}
+
+@keyframes blink{
+    50%{
+        opacity: 0;
+    }
+}
+
 #about{
     display: flex;
     justify-content: center;
     align-items: center;
     transition: all 10s ease;
-    animation: blink infinite 1s ease;
-}
-
-@keyframes blink{
-    100%{
-        opacity: 0;
-    }
 }
 
 .intro{
