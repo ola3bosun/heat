@@ -1,10 +1,7 @@
-Here's a sample `README.md` that you can tailor to your project:
 
----
+# GSAP & Vite Project
 
-# My Awesome GSAP & Vite Project
-
-A sleek web project built with **HTML**, **CSS**, **GSAP** for animations, and **Vite** for fast development. This project is all about smooth scroll effects, dynamic animations, and optimizing performance—just like a pro!
+A web project built with **HTML**, **CSS**, **GSAP** for animations, and **Vite** for fast development. This project is all about smooth scroll effects, dynamic animations, and optimizing performance.
 
 ## Overview
 
@@ -12,7 +9,6 @@ This project demonstrates:
 - **Smooth Animations:** Using GSAP to create eye-catching animations.
 - **Responsive Design:** Built with HTML and CSS for a modern, responsive layout.
 - **Lightning-fast Development:** Powered by Vite for a quick feedback loop during development.
-- **Optimized GitHub Presence:** A clean and well-structured project optimized for GitHub showcase.
 
 ## Features
 
