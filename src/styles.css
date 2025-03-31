@@ -69,6 +69,7 @@ section{
 .hero-h1{
     position: relative;
     left: -0.05em;
+    bottom: 0;
     text-transform: uppercase;
     font-weight: 500;
     font-size: 25vw;
@@ -80,6 +81,8 @@ section{
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    position: fixed;
+    bottom: 0;
 }
 
 #lagos-time{
