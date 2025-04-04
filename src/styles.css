@@ -3,22 +3,28 @@
     padding: 0;
     box-sizing: border-box;
     max-width: 100%;
+    
+}
+
+:root{
+    --primary-bg: #FAF9F6;
+    --primary-color: #000;
+    --theme-changer-bg: #a9a9a9;
+}
+
+.dark{
+    --primary-bg: #000;
+    --primary-color: #FAF9F6;
+    --theme-changer-bg: #a9a9a9;
 }
 
 body,
 html{
     font-family: "PP Neue MOntreal", sans-serif;
-    background-color: #000;
-    color: #f5f5f5;
+    background-color: var(--primary-bg);
+    color: var(--primary-color);
     overflow-x: hidden;
-    /* scroll-behavior: smooth; */
-    transition: scroll 1s linear;
-}
-
-h1{
-    font-size: 100px;
-    font-weight: 500;
-    mix-blend-mode: difference;
+    transition: background-color 0.6s ease, color 0.4s ease-in-out;
 }
 
 p{
@@ -28,9 +34,24 @@ p{
 
 a{
     text-decoration: none;
-    color: #fff;
     font-size: 20px;
     font-weight: 500;
+    color: var(--primary-color);
+}
+
+h1{
+    font-size: 15vw;
+    text-align: center;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    left: -0.05em;
+    bottom: 0;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    color: var(--primary-color);
 }
 
 nav{
@@ -38,21 +59,72 @@ nav{
     top: 0;
     left: 0;
     width: 100%;
-    padding: 1rem 1.5rem;
+    padding: 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    mix-blend-mode: difference;
+    /* mix-blend-mode: difference; */
     z-index: 2;
 }
 
+.left{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
+    width: 25%;
+    font-weight: 600;
+}
+
+.right{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 30%;
+}
+
+.theme-changer{
+    background-color: var(--theme-changer-bg);
+    width: 1rem;
+    border-radius: 1rem;
+    transition: all .5s ease;
+    cursor: pointer;
+    transition: transform .5s ease-in-out;
+    display: grid;
+    place-items: center;
+}
+.theme-changer:hover{
+    transform: width(1.5rem) height(1.5rem);
+}
+
+.slider{
+    height: 1rem;
+    width: 1rem;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    transition: translate .4s ease;
+}
+
+
 .links{
     display: flex;
-    flex-direction: column;
-    text-align: end;
-    font-size: .5rem;
-    /* gap: 1rem; */
+    gap: .5rem;
+    font-size: 1rem;
 }
+.links .links-link {
+    transition: opacity 0.5s ease;
+    opacity: 1;
+  }
+  
+  .links:hover .links-link {
+    opacity: 0.5;
+  }
+  
+  .links .links-link:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+  
 
 section{
     width: 100vw;
@@ -63,35 +135,52 @@ section{
 .hero{
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
     justify-content: space-between;
     padding-top: 8rem;
-}
-
-.hero-h1{
-    position: relative;
-    left: -0.05em;
-    bottom: 0;
-    text-transform: uppercase;
-    font-weight: 500;
-    font-size: 25vw;
-    letter-spacing: -0.04em;
-    line-height: 1;
 }
 
 .hero-copy{
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: last baseline;
 }
 
-#lagos-time{
-    animation: blink infinite 2s linear;
+.descr p{
+    font-size: 2rem;
 }
-
-@keyframes blink{
-    50%{
-        opacity: 0;
+.underline{
+    display: flex;
+    flex-direction: column;
+    padding-top: 1rem;
+    width: fit-content;
+    overflow: hidden;
+}
+.underline p{
+    padding-bottom: .3rem;
+    font-size: 1rem;
+}
+.und{
+    width: 100%;
+    height: 1px;
+    background-color: var(--primary-color);
+    transition: transform .5s ease-in-out;
+}
+.underline:hover .und{
+    animation: move 1.5s ease 1;
+}
+@keyframes move {
+    33%{
+        transform: translateX(100%);
+    }
+    67%{
+        height: 0;
+        background-color: var(--primary-bg);
+        transform: translateX(-100%);
+    }
+    100%{
+        height: 1px;
+        background-color: var(--primary-color);
+        transform: translateX(0);
     }
 }
 
@@ -108,7 +197,7 @@ section{
 
 .video-container-desktop{
     position: relative;
-    transform: translateY(-105%) scale(0.25);
+    transform: translateY(0%) scale(0.25);
     display: flex;
     flex-direction: column;
     gap: 2em;
@@ -145,9 +234,6 @@ section{
     height: 100%;
     border-radius: 1.5rem;
     overflow: hidden;
-    background-image: url('https://picsum.photos/1920/1080?grayscale');
-    background-size: cover;    /* Scales the image to cover the container */
-    background-position: center;
 }
 
 iframe{

@@ -20,10 +20,10 @@ document.addEventListener("DOMContentLoaded", () => {
     gsap.ticker.lagSmoothing(0);
 
     const breakpoints = [
-      { maxWidth: 1000, translateY: -135, movMultiplier: 450 },
-      { maxWidth: 1100, translateY: -130, movMultiplier: 500 },
-      { maxWidth: 1200, translateY: -125, movMultiplier: 550 },
-      { maxWidth: 1300, translateY: -120, movMultiplier: 600 },
+      { maxWidth: 1000, translateY: -100, movMultiplier: 450 },
+      { maxWidth: 1100, translateY: -100, movMultiplier: 500 },
+      { maxWidth: 1200, translateY: -100, movMultiplier: 550 },
+      { maxWidth: 1300, translateY: -100, movMultiplier: 600 },
     ];
 
     const getInitialValues = () => {
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       return {
-        translateY: -110,
+        translateY: -95,
         movementMultiplier: 650,
       };
     };
@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
       scrollTrigger: {
         trigger: ".intro",
         start: "top bottom",
-        end: "top 10%",
+        end: "top 15%",
         scrub: true,
         onUpdate: (self) => {
           animationState.scrollProgress = self.progress;
@@ -164,8 +164,32 @@ function updateTime() {
     hour12: false,
   };
   const timeString = new Date().toLocaleTimeString('en-GB', options);
-  document.getElementById('lagos-time').textContent = timeString;
+  document.getElementById('lagos-time').textContent = "Lagos, Nigeria " +timeString;
 }
 
-updateTime(); // set initial time
-setInterval(updateTime, 1000); // update every second to ensure it's current
+updateTime(); 
+setInterval(updateTime, 1000); // updates by the second to ensure it's current
+
+  //COLOR THEME SWITCHING 
+ 
+  document.addEventListener("DOMContentLoaded", () => {
+    const themeToggle = document.querySelector(".theme-changer");
+    const root = document.documentElement;
+  
+    // Check saved theme in localStorage
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+      root.classList.add("dark");
+    }
+  
+    themeToggle.addEventListener("click", () => {
+      root.classList.toggle("dark");
+  
+      // Save preference to localStorage
+      if (root.classList.contains("dark")) {
+        localStorage.setItem("theme", "dark");
+      } else {
+        localStorage.setItem("theme", "light");
+      }
+    });
+  });
